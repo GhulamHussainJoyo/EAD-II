@@ -10,11 +10,11 @@
 
 <body>
   <div class="row">
-    <h1>Add/Update form</h1>
+    <h1>Update form</h1>
   </div>
 
 
-  <form action="/create" method="POST" enctype="multipart/form-data">
+  <form action=<%= "/user/edit/"+user._id %> method="POST" enctype="multipart/form-data">
     <div class="row">
       <div class="card">
         <input name="img" type="file">
@@ -22,13 +22,13 @@
       <div class="card">
         <!-- 1 -->
         <div class="row">
-          <input name="name" type="text">
-          <input name="email" type="email">
+          <input name="name" type="text" value=<%= user.name %> >
+          <input name="email" type="email" value=<%= user.email %> >
         </div>
         <!-- 2 -->
         <div class="row">
-          <input name="phone" type="number">
-          <select name="country">
+          <input name="phone" type="number" value=<%= user.phone %>>
+          <select name="country" value=<%= user.country %>>
             <option value="Pakistan">Pakistan</option>
             <option value="India">India</option>
             <option value="Turkey">Turkey</option>
@@ -36,16 +36,16 @@
         </div>
         <!-- 3 -->
         <div class="row">
-          <input name="region" type="region">
-          <input name="city" type="city">
+          <input name="region" type="region" value=<%= user.region %>>
+          <input name="city" type="city" value=<%= user.city %>>
         </div>
         <!-- 4 -->
         <div class="row">
-          <input name="address" type="address">
-          <input name="zipcode" type="zipcode">
+          <input name="address" type="address" value=<%= user.address %>>
+          <input name="zipcode" type="zipcode" value=<%= user.zipcode %>>
         </div>
 
-        <button class="btn" type="submit">Add User</button>
+        <button class="btn" type="submit">Update User</button>
       </div>
     </div>
   </form>

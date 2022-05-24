@@ -45,8 +45,41 @@ exports.deleteUser = async (req, res) => {
 exports.editUser = async (req, res) => {
   const id = req.params.id;
   const user = await User.findById(id)
+  console.log(user);
   return res.render('edit', { user })
 }
+
+exports.updateUser = async (req, res) => {
+  const id = req.params.id;
+
+
+  const img = req.files.img;
+  img.mv(path.resolve(__dirname, '../assets/image', img.name), async (err) => {
+    if (err) return res.redirect('back')
+
+    const data = {
+      ...req.body,
+      image:
+        req.files?.img.name
+    };
+
+    console.log("data", data);
+    // const user = await User.create(data)
+    // console.log(user);
+    // if (user) {
+    //   return res.redirect('/users')
+    // }
+
+    const user = await User.findByIdAndUpdate(id, data)
+    console.log(user);
+    return res.redirect('/users')
+
+  })
+
+
+
+}
+
 
 
 
