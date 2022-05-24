@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div class="row">
+    <h1>Add/Update form</h1>
+  </div>
+
+
+  <form action="/create" method="POST" enctype="multipart/form-data">
+    <div class="row">
+      <div class="card">
+        <input name="img" type="file">
+      </div>
+      <div class="card">
+        <!-- 1 -->
+        <div class="row">
+          <input name="name" type="text">
+          <input name="email" type="email">
+        </div>
+        <!-- 2 -->
+        <div class="row">
+          <input name="phone" type="number">
+          <select name="country">
+            <option value="Pakistan">Pakistan</option>
+            <option value="India">India</option>
+            <option value="Turkey">Turkey</option>
+          </select>
+        </div>
+        <!-- 3 -->
+        <div class="row">
+          <input name="region" type="region">
+          <input name="city" type="city">
+        </div>
+        <!-- 4 -->
+        <div class="row">
+          <input name="address" type="address">
+          <input name="zipcode" type="zipcode">
+        </div>
+
+        <button class="btn" type="submit">Add User</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="card"></div>
+
+</body>
+
+</html>

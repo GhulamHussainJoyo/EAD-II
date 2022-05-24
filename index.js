@@ -16,7 +16,7 @@ const app = express();
 
 dotenv.config({ path: "./config/config.env" });
 
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "views"));
 app.use(express.static(path.resolve(__dirname, "assets")));
 app.use(bodyParser.urlencoded({ extended: true }));
