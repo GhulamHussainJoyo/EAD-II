@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,48 +7,56 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
     <h2>Responsive Table</h2>
-<div class="table-wrapper">
-    <table class="fl-table">
-        <thead>
-        <tr>
-            <th>Name </th>
-            <th>email</th>
-            <th>phone</th>
-            <th>city</th>
-            <th>postcode</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <% for(let i=0;i<users.length;i++){ %>
-               
-                <td>
-                    <div class="row">
-                        <img class="avatar size-32" src= <%= "image/"+users[i].image %> alt="">
-                        <span>
-                            <%= users[i].name %>
-                        </span>
-                     
-                    </div>
-                    </td>
-                <td><%= users[i].email %> </td>
-                <td><%= users[i].phone %> </td>
-                <td><%= users[i].country %> </td>
-                <td><%= users[i].region %> </td>
-               
-                <td>
-                    <a  class="edit" href= <%= "/user/edit/"+users[i]._id %> >edit</a>
-                    <a  class="edit" href= <%= "/user/edit/"+users[i]._id %> >delete</a>
-                    <!-- <a href="/user/delete">delete</a> -->
-                </td>
-            <% } %>
-         
-        </tr>
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>city</th>
+                    <th>postcode</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
 
-        <tbody>
-    </table>
-</div>
+
+
+                    <% if(users) {  %>
+                    <% for(let i=0;i<users.length;i++){ %>
+                    <td>
+                        <div class="row">
+                            <img class="avatar size-32" src=<%= "image/"+users[i].image %> alt="">
+                            <span>
+                                <%= users[i].name %>
+                            </span>
+
+                        </div>
+                    </td>
+                    <td><%= users[i].email %> </td>
+                    <td><%= users[i].phone %> </td>
+                    <td><%= users[i].country %> </td>
+                    <td><%= users[i].region %> </td>
+
+                    <td>
+                        <a class="edit" href=<%= "/user/edit/"+users[i]._id %>>edit</a>
+                        <a class="edit" href=<%= "/user/delete/"+users[i]._id %>>delete</a>
+                        <!-- <a href="/user/delete">delete</a> -->
+                    </td>
+                    <% } %>
+                </tr>
+                <%  } else{  %>
+
+                <h1>nothing here bro</h1>
+                <%   } %>
+
+            <tbody>
+        </table>
+    </div>
 </body>
+
 </html>

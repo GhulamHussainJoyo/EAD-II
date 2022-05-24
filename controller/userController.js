@@ -35,6 +35,18 @@ exports.getAllUsers = async (req, res) => {
   return res.render('users', { users })
 }
 
+exports.deleteUser = async (req, res) => {
+
+  const id = req.params.id;
+  const users = await User.findByIdAndDelete(id)
+  return res.redirect('/users')
+}
+
+exports.editUser = async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findById(id)
+  return res.render('edit', { user })
+}
 
 
 
